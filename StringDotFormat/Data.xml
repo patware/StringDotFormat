@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<baseTypes>
+	<baseType name="Numeric">
+		<dataTypeGroup name="Integral">
+			<dataType name="sbyte" rangeFrom="-128" rangeTo="127">Signed 8-bit integer</dataType>
+			<dataType name="byte" rangeFrom="0" rangeTo="255">Unsigned 8-bit integer</dataType>
+			<dataType name="char" rangeFrom="U+0000" rangeTo="U+ffff">Unicode 16-bit character</dataType>
+			<dataType name="short" rangeFrom="-32,768" rangeTo="32,767">Signed 16-bit integer</dataType>
+			<dataType name="ushort" rangeFrom="0" rangeTo="65,535">Unsigned 16-bit integer</dataType>
+			<dataType name="int" rangeFrom="-2,147,483,648" rangeTo="2,147,483,647">Signed 32-bit integer</dataType>
+			<dataType name="uint" rangeFrom="0" rangeTo="4,294,967,295">Unsigned 32-bit integer</dataType>
+			<dataType name="long" rangeFrom="-9,223,372,036,854,775,808" rangeTo="9,223,372,036,854,775,807">Signed 64-bit integer</dataType>
+			<dataType name="ulong" rangeFrom="0" rangeTo="18,446,744,073,709,551,615">Unsigned 64-bit integer</dataType>
+		</dataTypeGroup>
+		<dataType>int</dataType>
+		<dataType>float</dataType>
+
+		<standardFormats>
+			<format name="Currency" key="c" alternates="C">
+				The number is converted to a string that represents a currency amount. The conversion is controlled by the currency format information of the NumberFormatInfo object used to format the number. The precision specifier indicates the desired number of decimal places. If the precision specifier is omitted, the default currency precision given by the NumberFormatInfo is used.
+			</format>
+			<format name="Decimal" key="d" alternates="D">
+				This format is supported for integral types only. The number is converted to a string of decimal digits (0-9), prefixed by a minus sign if the number is negative. The precision specifier indicates the minimum number of digits desired in the resulting string. If required, the number is padded with zeros to its left to produce the number of digits given by the precision specifier.
+			</format>
+			<format name="Scientific (exponential)" key="e" alternates="E">
+				The number is converted to a string of the form "-d.ddd…E+ddd" or "-d.ddd…e+ddd", where each 'd' indicates a digit (0-9). The string starts with a minus sign if the number is negative. One digit always precedes the decimal point. The precision specifier indicates the desired number of digits after the decimal point. If the precision specifier is omitted, a default of six digits after the decimal point is used. The case of the format specifier indicates whether to prefix the exponent with an 'E' or an 'e'. The exponent always consists of a plus or minus sign and a minimum of three digits. The exponent is padded with zeros to meet this minimum, if required.
+			</format>
+			<format name="Fixed-point" key="f" alternates="F">
+				The number is converted to a string of the form "-ddd.ddd…" where each 'd' indicates a digit (0-9). The string starts with a minus sign if the number is negative. The precision specifier indicates the desired number of decimal places. If the precision specifier is omitted, the default numeric precision given by the NumberFormatInfo is used.
+			</format>
+			<format name="General" key="g" alternates="G">
+				The number is converted to the most compact of either fixed-point or scientific notation, depending on the type of the number and whether a precision specifier is present. If the precision specifier is omitted or zero, the type of the number determines the default precision, as indicated by the following list.
+
+				Byte or SByte: 3
+
+				Int16 or UInt16: 5
+
+				Int32 or UInt32: 10
+
+				Int64 or UInt64: 19
+
+				Single: 7
+
+				Double: 15
+
+				Decimal: 29
+
+				Fixed-point notation is used if the exponent that would result from expressing the number in scientific notation is greater than -5 and less than the precision specifier; otherwise, scientific notation is used. The result contains a decimal point if required and trailing zeroes are omitted. If the precision specifier is present and the number of significant digits in the result exceeds the specified precision, then the excess trailing digits are removed by rounding. If scientific notation is used, the exponent in the result is prefixed with 'E' if the format specifier is 'G', or 'e' if the format specifier is 'g'.
+
+				The exception to the preceding rule is if the number is a Decimal and the precision specifier is omitted. In that case, fixed-point notation is always used and trailing zeroes are preserved.
+
+			</format>
+			<format name="Number" key="n" alternates="N">
+				The number is converted to a string of the form "-d,ddd,ddd.ddd…", where each 'd' indicates a digit (0-9). The string starts with a minus sign if the number is negative. Thousand separators are inserted between each group of three digits to the left of the decimal point. The precision specifier indicates the desired number of decimal places. If the precision specifier is omitted, the default numeric precision given by the NumberFormatInfo is used.
+			</format>
+			<format name="Percent" key="p" alternates="P">
+				The number is converted to a string that represents a percent as defined by the NumberFormatInfo.PercentNegativePattern property or the NumberFormatInfo.PercentPositivePattern property. If the number is negative, the string produced is defined by the PercentNegativePattern and starts with a minus sign. The converted number is multiplied by 100 in order to be presented as a percentage. The precision specifier indicates the desired number of decimal places. If the precision specifier is omitted, the default numeric precision given by NumberFormatInfo is used.
+			</format>
+			<format name="Round-trip" key="r" alternates="R">
+				The round-trip specifier guarantees that a numeric value converted to a string will be parsed back into the same numeric value. When a numeric value is formatted using this specifier, it is first tested using the general format, with 15 spaces of precision for a Double and 7 spaces of precision for a Single. If the value is successfully parsed back to the same numeric value, it is formatted using the general format specifier. However, if the value is not successfully parsed back to the same numeric value, then the value is formatted using 17 digits of precision for a Double and 9 digits of precision for a Single. Although a precision specifier can be appended to the round-trip format specifier, it is ignored. Round trips are given precedence over precision when using this specifier. This format is supported by floating-point types only.
+			</format>
+			<format name="Hexadecimal" key="x" alternates="X">
+				The number is converted to a string of hexadecimal digits. The case of the format specifier indicates whether to use uppercase or lowercase characters for the hexadecimal digits greater than 9. For example, use 'X' to produce "ABCDEF", and 'x' to produce "abcdef". The precision specifier indicates the minimum number of digits desired in the resulting string. If required, the number is padded with zeros to its left to produce the number of digits given by the precision specifier. This format is supported for integral types only.
+			</format>
+		</standardFormats>
+	</baseType>
+</baseTypes>
