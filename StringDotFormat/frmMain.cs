@@ -10,8 +10,8 @@ namespace StringDotFormat
 {
     public partial class frmMain : Form
     {
-        private List<dataType> _dataTypes = new List<dataType>();
-        private dataType _currentDataType = null;
+        private List<DataType> _dataTypes = new List<DataType>();
+        private DataType _currentDataType = null;
         
         public frmMain()
         {
@@ -33,23 +33,27 @@ namespace StringDotFormat
             switch (comDataType.SelectedIndex)
             {
                 case -1:
-                    _currentDataType = new dataTypeIntegral();
+                    _currentDataType = new DataTypeIntegral();
                     break;
                 case 0:
-                    _currentDataType = new dataTypeIntegral();
+                    _currentDataType = new DataTypeIntegral();
                     break;
                 case 1:
-                    _currentDataType = new dataTypeFloating();
+                    _currentDataType = new DataTypeFloating();
                     break;
                 case 2:
-                    _currentDataType = new dataTypeDatTime();
+                    _currentDataType = new DataTypeDateTime();
 					break;
 				case 3:
-					_currentDataType = new dataTypeDecimal();
+					_currentDataType = new DataTypeDecimal();
 					break;
-            }
+				case 4:
+					_currentDataType = new DataTypeTimespan();
+					break;
 
-            loadFormatCues();
+			}
+
+			loadFormatCues();
             
             formatIt();
         }
@@ -90,7 +94,7 @@ namespace StringDotFormat
         private void frmMain_Load(object sender, EventArgs e)
         {
 
-            _currentDataType = new dataTypeIntegral();
+            _currentDataType = new DataTypeIntegral();
 
         }
 

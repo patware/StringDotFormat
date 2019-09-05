@@ -9,7 +9,7 @@ namespace StringDotFormat
         StringFormat,
         ToString
     }
-    abstract class dataType
+    abstract class DataType
     {
         public string[] StandardStringFormats;
         public string[] CustomStringFormats;

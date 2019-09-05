@@ -4,10 +4,10 @@ using System.Text;
 
 namespace StringDotFormat
 {
-    class dataTypeIntegral : dataType
+    class DataTypeIntegral : DataType
     {
        
-        public dataTypeIntegral():base()
+        public DataTypeIntegral():base()
         {
             base.StandardStringFormats = 
                 new string[]

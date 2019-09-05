@@ -4,9 +4,9 @@ using System.Text;
 
 namespace StringDotFormat
 {
-    class dataTypeFloating : dataType
+    class DataTypeFloating : DataType
     {
-        public dataTypeFloating()
+        public DataTypeFloating()
         {
 			base.StandardStringFormats =
 				new string[]

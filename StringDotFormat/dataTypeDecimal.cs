@@ -4,9 +4,9 @@ using System.Text;
 
 namespace StringDotFormat
 {
-	class dataTypeDecimal : dataType
+	class DataTypeDecimal : DataType
 	{
-		public dataTypeDecimal()
+		public DataTypeDecimal()
 		{
 			base.StandardStringFormats =
 					new string[]

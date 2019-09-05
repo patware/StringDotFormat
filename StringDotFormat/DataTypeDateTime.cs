@@ -4,9 +4,9 @@ using System.Text;
 
 namespace StringDotFormat
 {
-    class dataTypeDatTime:dataType
+    class DataTypeDateTime:DataType
     {
-        public dataTypeDatTime()
+        public DataTypeDateTime()
         {
             base.StandardStringFormats =
                             new string[]
